@@ -4,7 +4,7 @@ from splinter import Browser
 from bs4 import BeautifulSoup as bs
 import time
 from html.parser import HTMLParser
-import re
+import re 
 
 
 def init_browser():
@@ -168,7 +168,7 @@ def scrape_info():
     news_p = body_df.iloc[0]['Body']
     featured_image_url = f"https://www.jpl.nasa.gov{image}"
     # mars_weather = tweet
-    facts_df
+    facts_dict = facts_df.to_html()
     mars_list = {
         "title" : "Cerberus Hemisphere", "img_url" : "/cache/images/dfaf3849e74bf973b59eb50dab52b583_cerberus_enhanced.tif_thumb.png",
         "title" : "Schiaparelli Hemisphere", "img_url" : "cache/images/7677c0a006b83871b5a2f66985ab5857_schiaparelli_enhanced.tif_thumb.png",
@@ -181,7 +181,7 @@ def scrape_info():
         "news_para" : news_p,
         "featured_image_url" : featured_image_url,
         # "mars_weather" : mars_weather,
-        "facts_table" : facts_df,
+        "facts_table" : facts_dict,
         "mars_list" : mars_list,
     }
     return mars_data
