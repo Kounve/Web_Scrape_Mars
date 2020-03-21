@@ -5,20 +5,44 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Erry thang u need 2 kno bout MARS</title>
+  <title>Oh no its Mars!</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet2" type="text/css" href="../css/style.css"/>
 </head>
-
-<body>
+<style type="text/css">
+  body { background: black !important; }
+  h2 { color:blanchedalmond !important; font-weight: bolder;}
+  h3 { color:blanchedalmond !important; font-weight: bold;}
+  h4 { color:blanchedalmond !important;}
+  h5 { color:blanchedalmond !important; font-size: 1em;} /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+</style>
+<body> 
   <div class="container-fluid">
     <div class="jumbotron text-center">
-      <h1>YOU SHOULD</h1>
-      <p>not got to mars</p>
+      <h1>Erry thang u need 2 kno bout MARS</h1>
+      <p>we not got to mars</p>
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Data!</a></p>
     </div>
     {% if mars %}
-    <h2>WELCOME TO MARS</h2>
-    <h3>Mars: {{ scrape_mars.scrape_info }}</h3>
+    <div class="row">
+      <div class="col-md-12">
+        <h2>LATEST NEWS FROM MARS</h2>
+        <h3>{{ mars.news_title }}</h3>
+        <h4>{{ mars.news_para }}</h4>
+      </div>
+    </row>
+    <div class="row">
+      <div class="col-md-7">
+        <h3>Featured Image</h3>
+        <img src="{{ mars.featured_image_url }}" class="img-fluid" alt="Responsive image" height="85%" width="75%"></img>
+      </div>
+    </row>
+    <div class="row">
+      <div class="col-md-5">
+        <h3>General Information about mars</h3>
+        <h5>{{ mars.facts_table|safe }}</h3>
+      </div>  
+    </row>  
     {% endif %}
   </div>
   </div>

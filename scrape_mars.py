@@ -162,6 +162,8 @@ def scrape_info():
     facts_df.columns = ['facts']
     facts_df = facts_df['facts'].str.split(":", expand = True)
     facts_df.columns = ['Info', 'Data']
+    facts_df = facts_df[:-8]
+
     
     #last of the scrapes
     news_title = title_df.iloc[0]['title']
@@ -169,12 +171,12 @@ def scrape_info():
     featured_image_url = f"https://www.jpl.nasa.gov{image}"
     # mars_weather = tweet
     facts_dict = facts_df.to_html()
-    mars_list = {
-        "title" : "Cerberus Hemisphere", "img_url" : "/cache/images/dfaf3849e74bf973b59eb50dab52b583_cerberus_enhanced.tif_thumb.png",
-        "title" : "Schiaparelli Hemisphere", "img_url" : "cache/images/7677c0a006b83871b5a2f66985ab5857_schiaparelli_enhanced.tif_thumb.png",
-        "title" : "Syrtis Major", "img_url" : "/cache/images/aae41197e40d6d4f3ea557f8cfe51d15_syrtis_major_enhanced.tif_thumb.png",
-        "title" : "Valles Marineris", "img_url" : "/cache/images/04085d99ec3713883a9a57f42be9c725_valles_marineris_enhanced.tif_thumb.png"
-    }
+    mars_list = [
+        {"title" : "Cerberus Hemisphere", "img_url" : "/cache/images/dfaf3849e74bf973b59eb50dab52b583_cerberus_enhanced.tif_thumb.png"},
+        {"title" : "Schiaparelli Hemisphere", "img_url" : "cache/images/7677c0a006b83871b5a2f66985ab5857_schiaparelli_enhanced.tif_thumb.png"},
+        {"title" : "Syrtis Major", "img_url" : "/cache/images/aae41197e40d6d4f3ea557f8cfe51d15_syrtis_major_enhanced.tif_thumb.png"},
+        {"title" : "Valles Marineris", "img_url" : "/cache/images/04085d99ec3713883a9a57f42be9c725_valles_marineris_enhanced.tif_thumb.png"}
+    ]
     #create list to store all scrapes
     mars_data = {
         "news_title" : news_title,
