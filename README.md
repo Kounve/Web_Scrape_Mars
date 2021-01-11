@@ -1,1 +1,1 @@
-Create a web scraping application using splinter, flask, beatifulsoup, and many other technologies.
+Create a web scraping application using splinter, flask, and beatifulsoup.
